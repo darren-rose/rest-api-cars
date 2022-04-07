@@ -9,14 +9,14 @@ import java.util.*;
 import java.util.concurrent.atomic.AtomicInteger;
 
 @Slf4j
-@RestController()
+@RestController
 @RequestMapping("/cars")
 public class CarsController {
 
     private Map<Integer, Car> cars = new HashMap<>();
     private AtomicInteger nextId = new AtomicInteger(0);
 
-    @PostMapping()
+    @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
     public Car createCar(@RequestBody Car car) {
         log.info("create car {}", car);
@@ -25,7 +25,7 @@ public class CarsController {
         return car;
     }
 
-    @GetMapping()
+    @GetMapping
     public Collection<Car> getCars() {
         log.info("get cars");
         return cars.values();
